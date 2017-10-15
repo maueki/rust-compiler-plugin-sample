@@ -1,0 +1,11 @@
+[package]
+name = "sample_plugin"
+version = "0.1.0"
+authors = ["UEKI Masaru <masaru.ueki@itage.co.jp>"]
+
+[lib]
+name = "sample_plugin"
+path = "src/lib.rs"
+plugin = true
+
+[dependencies]
