@@ -19,7 +19,8 @@ use rustc_plugin::Registry;
 
 fn expand_sample(cx: &mut ExtCtxt, sp: Span, _args: &[TokenTree])
                  -> Box<MacResult + 'static> {
-    MacEager::expr(cx.expr_lit(sp, ast::LitKind::Str(Symbol::intern("hoge"), ast::StrStyle::Cooked)))
+    let expr = cx.expr_lit(sp, ast::LitKind::Str(Symbol::intern("hoge"), ast::StrStyle::Cooked));
+    MacEager::expr(cx.expr_block(cx.block_expr(expr)))
 }
 
 #[plugin_registrar]
